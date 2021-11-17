@@ -1,20 +1,25 @@
 const modal = () => {
-  const btn = document.querySelector("#header .button");
   const modal = document.querySelector(".header-modal");
   const overlay = document.querySelector(".overlay");
-  const closeBtn = document.querySelector(".header-modal__close");
 
-  btn.addEventListener("click", () => {
-    modal.style.display = "block";
-    overlay.style.display = "block";
-  });
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-  });
-  overlay.addEventListener("click", (e) => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
+  const toggler = (elems) => {
+    elems.forEach((el) => {
+      if (el.style.display == "block") el.style.display = "none";
+      else el.style.display = "block";
+    });
+  };
+
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#header .button")) {
+      console.log("#header .button");
+      toggler([modal, overlay]);
+    } else if (
+      e.target.closest(".header-modal__close") ||
+      e.target.closest(".overlay")
+    ) {
+      console.log("header-modal__close or overlay");
+      toggler([modal, overlay]);
+    }
   });
 };
 
