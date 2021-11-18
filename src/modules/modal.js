@@ -15,6 +15,12 @@ const modal = () => {
     toggler(modal, overlay);
   };
 
+  document.addEventListener("DOMContentLoaded", (e) => {
+    overlay.style.display = "none";
+    serviceModal.style.display = "none";
+    headerModal.style.display = "none";
+  });
+
   serviceBtns.forEach((btn) =>
     btn.addEventListener("click", (e) => {
       showModal(serviceModal);
