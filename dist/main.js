@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n// import headerModal from \"./modules/headerModal\";\n// import serviceModal from \"./modules/serviceModal\";\n// import initModals from \"./modules/modal_prev\";\n\n// initModals();\n// headerModal();\n// serviceModal();\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst toggler = (modal, overlay) => {\n  if (modal.style.display == \"none\") {\n    modal.style.display = \"block\";\n    overlay.style.display = \"block\";\n  } else {\n    modal.style.display = \"none\";\n    overlay.style.display = \"none\";\n  }\n  // elems.forEach((el) => {\n  //   if (el.style.display == \"block\") el.style.display = \"none\";\n  //   else el.style.display = \"block\";\n  // });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggler);\n\n\n//# sourceURL=webpack:///./modules/utils.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst toggler = (modal, overlay) => {\n  if (modal.style.display == \"none\") {\n    modal.style.display = \"block\";\n    overlay.style.display = \"block\";\n  } else {\n    modal.style.display = \"none\";\n    overlay.style.display = \"none\";\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggler);\n\n\n//# sourceURL=webpack:///./modules/utils.js?");
 
 /***/ })
 
