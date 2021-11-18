@@ -10,6 +10,7 @@
   "author": "Helly Piasetska",
   "license": "ISC",
   "devDependencies": {
+    "swiper": "^7.3.0",
     "webpack": "^5.64.1",
     "webpack-cli": "^4.9.1"
   }
