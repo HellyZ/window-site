@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"1 january 2022\");\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -36,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"../node_modules/swiper/swiper.esm.js\");\n\nconst WIDTH = 576;\n\nconst sliderBlock = () => {\n  console.log(\"slider\")\n  const slider = new swiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\".swiper\", {\n    centeredSlides: true,\n    slidesPerView: 3,\n    autoplay: {\n      delay: 2500,\n      // disableOnInteraction: false\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderBlock);\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"../node_modules/swiper/swiper.esm.js\");\n\nconst WIDTH = 576;\n\nconst sliderBlock = () => {\n  console.log(\"slider\")\n  const slider = new swiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\".swiper\", {\n    centeredSlides: true,\n    slidesPerView: 3,\n    autoplay: {\n      delay: 2500,\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderBlock);\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+
+/***/ }),
+
+/***/ "./modules/timer.js":
+/*!**************************!*\
+  !*** ./modules/timer.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timer = (deadline) => {\n\n  const timerDays = document.querySelector(\".count_1 span\");\n  const timerHours = document.querySelector(\".count_2 span\");\n  const timerMinutes = document.querySelector(\".count_3 span\");\n  const timerSeconds = document.querySelector(\".count_4 span\");\n\n  let interval;\n\n  const getTimeRemaining = () => {\n    let dateStop = new Date(deadline).getTime();\n    let dateNow = new Date().getTime();\n    let timeRemaining = (dateStop - dateNow) / 1000;\n\n    let days = Math.floor(timeRemaining / 60 / 60 / 24);\n    let hours = Math.floor((timeRemaining / 60 / 60) % 24);\n    let minutes = Math.floor((timeRemaining / 60) % 60);\n    let seconds = Math.floor(timeRemaining % 60);\n\n    return { timeRemaining, days, hours, minutes, seconds };\n  };\n\n  const updateClock = (getTime) => {\n    timerDays.textContent =\n      getTime.days.toString().length > 1 ? getTime.days : \"0\" + getTime.days;\n    timerHours.textContent =\n      getTime.hours.toString().length > 1 ? getTime.hours : \"0\" + getTime.hours;\n    timerMinutes.textContent =\n      getTime.minutes.toString().length > 1\n        ? getTime.minutes\n        : \"0\" + getTime.minutes;\n    timerSeconds.textContent =\n      getTime.seconds.toString().length > 1\n        ? getTime.seconds\n        : \"0\" + getTime.seconds;\n  };\n  let loadTime = getTimeRemaining();\n\n  if (loadTime.timeRemaining > 0) {\n    interval = setInterval(() => {\n      updateClock(loadTime);\n      loadTime = getTimeRemaining();\n    }, 1000);\n  } else {\n    clearInterval(interval);\n    timerDays.textContent =\n      timerHours.textContent =\n      timerMinutes.textContent =\n      timerSeconds.textContent =\n        \"00\";\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\n\n\n//# sourceURL=webpack:///./modules/timer.js?");
 
 /***/ }),
 
