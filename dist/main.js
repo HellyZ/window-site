@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst smoothScroll = () => {\n  const scrollBtn = document.querySelector(\".smooth-scroll\")\n  scrollBtn.addEventListener(\"click\", () => {\n    window.scrollTo({\n      top: 0,\n      behavior: \"smooth\"\n    })\n  })\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScroll);\n\n\n//# sourceURL=webpack:///./modules/smoothScroll.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst smoothScroll = () => {\n  const section = document.querySelector(\"#benefits\");\n  const scrollBtn = document.querySelector(\".smooth-scroll\");\n\n  document.addEventListener(\"scroll\", (e) => {\n    let domRect = section.getBoundingClientRect();\n    \n    if (domRect.y > 0) {\n      scrollBtn.style.display = \"none\";\n    } else {\n      scrollBtn.style.display = \"block\";\n    }\n  });\n\n  scrollBtn.addEventListener(\"click\", () => {\n    window.scrollTo({\n      top: 0,\n      behavior: \"smooth\",\n    });\n  });\n\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScroll);\n\n\n//# sourceURL=webpack:///./modules/smoothScroll.js?");
 
 /***/ }),
 
