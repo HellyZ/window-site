@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"1 january 2022\");\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/smoothScroll */ \"./modules/smoothScroll.js\");\n\n\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"1 january 2022\");\n(0,_modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -37,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"../node_modules/swiper/swiper.esm.js\");\n\n\nconst sliderBlock = () => {\n  const slider = new swiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\".swiper\", {\n    modules: [swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation],\n    enabled: true,\n    centeredSlides: true,\n    centeredSlidesBounds: true,\n    autoplay: {\n      delay: 2500,\n    },\n    navigation: {\n      nextEl: \".benefits__arrow--right\",\n      prevEl: \".benefits__arrow--left\",\n    },\n    slideClass: \"swiper-slide\",\n    breakpoints: {\n      // when window width is >= 320px\n      400: {\n        slidesPerView: 1,\n        // slidesPerGroup: 1,\n        spaceBetween: 20,\n      },\n      // when window width is >= 640px\n      640: {\n        slidesPerView: 3,\n        spaceBetween: 50,\n      },\n    },\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderBlock);\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+
+/***/ }),
+
+/***/ "./modules/smoothScroll.js":
+/*!*********************************!*\
+  !*** ./modules/smoothScroll.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst smoothScroll = () => {\n  const scrollBtn = document.querySelector(\".smooth-scroll\")\n  scrollBtn.addEventListener(\"click\", () => {\n    window.scrollTo({\n      top: 0,\n      behavior: \"smooth\"\n    })\n  })\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScroll);\n\n\n//# sourceURL=webpack:///./modules/smoothScroll.js?");
 
 /***/ }),
 
