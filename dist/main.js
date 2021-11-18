@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n// import headerModal from \"./modules/headerModal\";\n// import serviceModal from \"./modules/serviceModal\";\n// import initModals from \"./modules/modal_prev\";\n\n// initModals();\n// headerModal();\n// serviceModal();\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst modal = () => {\n  const modal = document.querySelector(\".header-modal\");\n  const overlay = document.querySelector(\".overlay\");\n\n  const toggler = (elems) => {\n    elems.forEach((el) => {\n      if (el.style.display == \"block\") el.style.display = \"none\";\n      else el.style.display = \"block\";\n    });\n  };\n\n  document.addEventListener(\"click\", (e) => {\n    if (e.target.closest(\"#header .button\")) {\n      console.log(\"#header .button\");\n      toggler([modal, overlay]);\n    } else if (\n      e.target.closest(\".header-modal__close\") ||\n      e.target.closest(\".overlay\")\n    ) {\n      console.log(\"header-modal__close or overlay\");\n      toggler([modal, overlay]);\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n\n//# sourceURL=webpack:///./modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./modules/utils.js\");\n\n\nconst modal = () => {\n  let serviceModal = document.querySelector(\".services-modal\");\n  let serviceBtns = document.querySelectorAll(\".service-button\");\n  let serviceClose = document.querySelector(\".services-modal__close\");\n\n  let headerModal = document.querySelector(\".header-modal\");\n  let headerBtn = document.querySelector(\"#header .button\");\n  let headerClose = document.querySelector(\".header-modal__close\");\n\n  let overlay = document.querySelector(\".overlay\");\n\n  let showModal = (modal) => {\n    (0,_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(modal, overlay);\n  };\n\n  serviceBtns.forEach((btn) =>\n    btn.addEventListener(\"click\", (e) => {\n      showModal(serviceModal);\n    })\n  );\n\n  headerBtn.addEventListener(\"click\", (e) => {\n    showModal(headerModal);\n  });\n  overlay.addEventListener(\"click\", (e) => {\n    overlay.style.display = \"none\";\n    if (serviceModal.style.display == \"block\") {\n      serviceModal.style.display = \"none\";\n    } else if (headerModal.style.display == \"block\") {\n      headerModal.style.display = \"none\";\n    }\n  });\n\n  headerClose.addEventListener(\"click\", (e) => {\n    (0,_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(headerModal, overlay);\n  });\n\n  serviceClose.addEventListener(\"click\", (e) => {\n    (0,_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(serviceModal, overlay);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n\n//# sourceURL=webpack:///./modules/modal.js?");
+
+/***/ }),
+
+/***/ "./modules/utils.js":
+/*!**************************!*\
+  !*** ./modules/utils.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst toggler = (modal, overlay) => {\n  if (modal.style.display == \"none\") {\n    modal.style.display = \"block\";\n    overlay.style.display = \"block\";\n  } else {\n    modal.style.display = \"none\";\n    overlay.style.display = \"none\";\n  }\n  // elems.forEach((el) => {\n  //   if (el.style.display == \"block\") el.style.display = \"none\";\n  //   else el.style.display = \"block\";\n  // });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggler);\n\n\n//# sourceURL=webpack:///./modules/utils.js?");
 
 /***/ })
 

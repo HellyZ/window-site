@@ -1,25 +1,44 @@
-const modal = () => {
-  const modal = document.querySelector(".header-modal");
-  const overlay = document.querySelector(".overlay");
+import toggler from "./utils";
 
-  const toggler = (elems) => {
-    elems.forEach((el) => {
-      if (el.style.display == "block") el.style.display = "none";
-      else el.style.display = "block";
-    });
+const modal = () => {
+  let serviceModal = document.querySelector(".services-modal");
+  let serviceBtns = document.querySelectorAll(".service-button");
+  let serviceClose = document.querySelector(".services-modal__close");
+
+  let headerModal = document.querySelector(".header-modal");
+  let headerBtn = document.querySelector("#header .button");
+  let headerClose = document.querySelector(".header-modal__close");
+
+  let overlay = document.querySelector(".overlay");
+
+  let showModal = (modal) => {
+    toggler(modal, overlay);
   };
 
-  document.addEventListener("click", (e) => {
-    if (e.target.closest("#header .button")) {
-      console.log("#header .button");
-      toggler([modal, overlay]);
-    } else if (
-      e.target.closest(".header-modal__close") ||
-      e.target.closest(".overlay")
-    ) {
-      console.log("header-modal__close or overlay");
-      toggler([modal, overlay]);
+  serviceBtns.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      showModal(serviceModal);
+    })
+  );
+
+  headerBtn.addEventListener("click", (e) => {
+    showModal(headerModal);
+  });
+  overlay.addEventListener("click", (e) => {
+    overlay.style.display = "none";
+    if (serviceModal.style.display == "block") {
+      serviceModal.style.display = "none";
+    } else if (headerModal.style.display == "block") {
+      headerModal.style.display = "none";
     }
+  });
+
+  headerClose.addEventListener("click", (e) => {
+    toggler(headerModal, overlay);
+  });
+
+  serviceClose.addEventListener("click", (e) => {
+    toggler(serviceModal, overlay);
   });
 };
 
