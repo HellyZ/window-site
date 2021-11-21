@@ -13,8 +13,6 @@ const menu = () => {
   const menuBtns = document.querySelectorAll(".collapsed");
   document.addEventListener("DOMContentLoaded", (e) => {
     menu.style.display = "none";
-    let menuTop = document.querySelectorAll("#navigation-fixed");
-    menuTop.style.display = "none";
   });
 
   window.addEventListener("resize", (e) => {
