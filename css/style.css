@@ -1524,12 +1524,12 @@ p.services-image_mobile {
   }
 
   .navbar-collapse.collapse {
-    display: none !important;
+    display: none;
     border-top: 1px solid transparent;
   }
 
   .navbar-nav {
-    float: none !important;
+    float: none;
     margin-top: 7.5px;
     margin-bottom: 20px;
   }
