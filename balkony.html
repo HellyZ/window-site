@@ -623,12 +623,14 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
+										<div class="error" hidden>Только русские и латинские символов</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="phone" class="form-control required" placeholder="ваш телефон"
 											data-mask="+7 (999) 999-99-99">
+											<div class="error" hidden>Телуфон в формате +7 (999) 999-99-99</div>
 									</div>
 								</div>
 								<div class="form-group">
@@ -831,12 +833,14 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
+										<div class="error" hidden>Только русские и латинские символов</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-12">
 										<input type="text" name="phone" class="form-control required" placeholder="ваш телефон"
 											data-mask="+7 (999) 999-99-99">
+											<div class="error" hidden>Телуфон в формате +7 (999) 999-99-99</div>
 									</div>
 								</div>
 								<div class="form-group">
@@ -990,10 +994,12 @@
 			<form name="order-form">
 				<div class="form-group">
 					<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
+					<div class="error" hidden>Только русские и латинские символов</div>
 				</div>
 				<div class="form-group">
 					<input type="text" name="phone" class="form-control required" placeholder="Контактный телефон*"
 						data-mask="+7 (999) 999-99-99">
+						<div class="error" hidden>Телуфон в формате +7 (999) 999-99-99</div>
 				</div>
 				<div class="form-action">
 					<div class="text-center"><button type="submit" class="btn btn-success feedback">Принять участие!</button>
