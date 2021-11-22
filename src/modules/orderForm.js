@@ -1,5 +1,6 @@
 function validateFields(inputs) {
   let isValid = false;
+
   const pattern = new RegExp(
     /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ ]+$/,
     "gu"
@@ -26,6 +27,16 @@ function validateFields(inputs) {
   return isValid;
 }
 const orderForm = () => {
+  const sendData = (data) => {
+    return fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  };
+
   let forms = document.querySelectorAll(".order form");
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
@@ -33,7 +44,23 @@ const orderForm = () => {
       e.preventDefault();
       let inputs = e.target.elements;
       if (validateFields(inputs)) {
-        alert(`perform form submitting`);
+        const formBody = {
+          fio: inputs.fio.value,
+          phone: inputs.phone.value,
+          page: inputs.page.value,
+        };
+        let total = document.querySelector("#calc-total");
+        if (total && total.value) {
+          formBody["total"] = total.value;
+        }
+        sendData(formBody)
+          .then((data) => {
+            inputs.fio.value = "";
+            inputs.phone.value = "";
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else {
         console.error("Validation failed");
         return;
