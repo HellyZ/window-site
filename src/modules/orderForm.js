@@ -35,7 +35,7 @@ const orderForm = () => {
       if (validateFields(inputs)) {
         alert(`perform form submitting`);
       } else {
-        console.log("Validation failed");
+        console.error("Validation failed");
         return;
       }
     });
