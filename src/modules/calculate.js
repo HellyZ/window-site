@@ -24,14 +24,15 @@ const calculate = () => {
     }
     return totalValue;
   };
-
-  calcSection.addEventListener("input", (e) => {
-    let res = countCalc();
-    if (res > 0) {
-      let e = document.querySelector("#calc-total");
-      e.value = res;
-    }
-  });
+  if (calcSection) {
+    calcSection.addEventListener("input", (e) => {
+      let res = countCalc();
+      if (res > 0) {
+        let e = document.querySelector("#calc-total");
+        e.value = res;
+      }
+    });
+  }
 };
 
 export default calculate;
