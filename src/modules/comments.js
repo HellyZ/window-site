@@ -1,10 +1,8 @@
 const comments = () => {
-
   const getData = async (path) => {
     try {
       return await fetch(path).then((response) => response.json());
     } catch (error) {
-      console.error(`Achtung! ${error.message}`);
       throw new Error(error.message);
     }
   };
