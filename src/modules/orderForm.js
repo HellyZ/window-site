@@ -1,32 +1,51 @@
+const fioPattern = new RegExp(
+  /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ ]+/,
+  "gu"
+);
+const phonePattern = new RegExp(/\+[0-9]{1,16}/);
+
+function validateField(field, pattern) {
+  if (!pattern.test(field.value)) {
+    field.classList.add("error");
+    field.nextElementSibling.removeAttribute("hidden");
+  } else {
+    field.classList.remove("error");
+    field.nextElementSibling.setAttribute("hidden", "hidden");
+  }
+}
 function validateFields(inputs) {
-  let isValid = false;
+  let isValidForm = false;
 
-  const pattern = new RegExp(
-    /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ ]+$/,
-    "gu"
-  );
-  if (!pattern.test(inputs.fio.value)) {
-    inputs.fio.classList.add("error");
-    inputs.fio.nextElementSibling.removeAttribute("hidden");
-    isValid = false;
+  if (!fioPattern.test(inputs.fio.value)) {
+    isValidForm = false;
   } else {
-    inputs.fio.classList.remove("error");
-    inputs.fio.nextElementSibling.setAttribute("hidden", "hidden");
-    isValid = true;
+    isValidForm = true;
   }
-
-  if (!new RegExp(/\+[0-9]{1,16}$/).test(inputs.phone.value)) {
-    inputs.phone.classList.add("error");
-    inputs.phone.nextElementSibling.removeAttribute("hidden");
-    isValid = false;
+  if (!phonePattern.test(inputs.phone.value)) {
+    isValidForm = false;
   } else {
-    inputs.phone.classList.remove("error");
-    inputs.phone.nextElementSibling.setAttribute("hidden", "hidden");
-    isValid = true;
+    isValidForm = true;
   }
-  return isValid;
+  return isValidForm;
 }
 const orderForm = () => {
+  document.querySelectorAll("form").forEach((form) => {
+    const fields = form.elements;
+
+    fields.fio.addEventListener("blur", (e) => {
+      validateField(
+        e.target,
+        new RegExp(
+          /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ ]+$/,
+          "mu"
+        )
+      );
+    });
+    fields.phone.addEventListener("blur", (e) => {
+      validateField(e.target, new RegExp(/\+([0-9]{1,16})$/, "m"));
+    });
+  });
+
   const sendData = (data) => {
     return fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
