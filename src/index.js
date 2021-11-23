@@ -6,6 +6,8 @@ import documentGallery from "./modules/documentGallery";
 import menu from "./modules/menu";
 import calculate from "./modules/calculate";
 import orderForm from "./modules/orderForm";
+import comments from "./modules/comments";
+
 modal();
 sliderBlock();
 
@@ -15,3 +17,4 @@ documentGallery();
 menu();
 calculate();
 orderForm();
+comments();
