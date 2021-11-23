@@ -32,16 +32,18 @@ const orderForm = () => {
   document.querySelectorAll("form").forEach((form) => {
     const fields = form.elements;
 
-    fields.fio.addEventListener("blur", (e) => {
+    fields.fio.addEventListener("input", (e) => {
+      console.log("input 1");
       validateField(
         e.target,
         new RegExp(
-          /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ ]+$/,
+          /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯa-zA-Z ]+$/,
           "mu"
         )
       );
     });
-    fields.phone.addEventListener("blur", (e) => {
+    fields.phone.addEventListener("input", (e) => {
+      console.log("input 2");
       validateField(e.target, new RegExp(/\+([0-9]{1,16})$/, "m"));
     });
   });
