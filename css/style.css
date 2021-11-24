@@ -1983,6 +1983,10 @@ input.error {
   transform: rotate(90deg);
 }
 
+.smooth-scroll:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 576px) {
   .benefits-wrap {
     width: 100%;
