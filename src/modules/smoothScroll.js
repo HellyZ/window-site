@@ -4,7 +4,7 @@ const smoothScroll = () => {
 
   document.addEventListener("scroll", (e) => {
     let domRect = section.getBoundingClientRect();
-    
+
     if (domRect.y > 0) {
       scrollBtn.style.display = "none";
     } else {
@@ -18,7 +18,6 @@ const smoothScroll = () => {
       behavior: "smooth",
     });
   });
-
 };
 
 export default smoothScroll;
