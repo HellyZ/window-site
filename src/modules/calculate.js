@@ -18,7 +18,9 @@ const calculate = () => {
     }
 
     if (calcType.value && calcMaterial.value) {
-      totalValue = calcTypeValue * calcMaterialValue * calcInputValue;
+      totalValue = (calcTypeValue * calcMaterialValue * calcInputValue).toFixed(
+        2
+      );
     } else {
       totalValue = 0;
     }
