@@ -33,7 +33,6 @@ const orderForm = () => {
     const fields = form.elements;
 
     fields.fio.addEventListener("input", (e) => {
-      console.log("input 1");
       validateField(
         e.target,
         new RegExp(
@@ -43,7 +42,6 @@ const orderForm = () => {
       );
     });
     fields.phone.addEventListener("input", (e) => {
-      console.log("input 2");
       validateField(e.target, new RegExp(/\+([0-9]{1,16})$/, "m"));
     });
   });
